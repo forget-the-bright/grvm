@@ -25,7 +25,7 @@ func use(ctx *cli.Context) (err error) {
 	if err = mkSymlink(targetV, goroot); err != nil {
 		return cli.Exit(errstring(err), 1)
 	}
-	if output, err := exec.Command(filepath.Join(goroot, "bin", "gradle"), "-").Output(); err == nil {
+	if output, err := exec.Command(filepath.Join(goroot, "bin", "gradle"), "-v").Output(); err == nil {
 		fmt.Print(string(output))
 	}
 	return nil
