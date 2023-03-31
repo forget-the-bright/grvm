@@ -16,6 +16,7 @@ import (
 )
 
 func fundVersion(version string) *collector.GradleItem {
+	collector.Init()
 	rs := collector.Collector.Items
 	for _, v := range rs {
 		if v.Version == version { //strings.Contains(v.SimpleName, version)

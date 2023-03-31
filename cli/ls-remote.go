@@ -28,6 +28,7 @@ func remoteVersionLength2(version string) string {
 func listRemote(*cli.Context) (err error) {
 	use_version := inuse(goroot)
 	out := ansi.NewAnsiStdout()
+	collector.Init()
 	rs := collector.Collector.Items
 	color.New(color.FgGreen).Fprintf(out, " %s\n", " version              info            RelaseTime")
 	for _, v := range rs {

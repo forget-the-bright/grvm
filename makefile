@@ -17,33 +17,33 @@ build-all: build-linux build-darwin build-windows
 
 build-linux: build-linux-386 build-linux-amd64 build-linux-arm build-linux-arm64 build-linux-s390x
 build-linux-386:
-	GOOS=linux GOARCH=386 $(GO) build $(GO_FLAGS) -o bin/linux-386/j
+	GOOS=linux GOARCH=386 $(GO) build $(GO_FLAGS) -o bin/linux-386/grvm
 build-linux-amd64:
-	GOOS=linux GOARCH=amd64 $(GO) build $(GO_FLAGS) -o bin/linux-amd64/linux_amd_x86_64_j
+	GOOS=linux GOARCH=amd64 $(GO) build $(GO_FLAGS) -o bin/linux-amd64/linux_amd_x86_64_grvm
 build-linux-arm:
-	GOOS=linux GOARCH=arm $(GO) build $(GO_FLAGS) -o bin/linux-arm/j
+	GOOS=linux GOARCH=arm $(GO) build $(GO_FLAGS) -o bin/linux-arm/grvm
 build-linux-arm64:
-	GOOS=linux GOARCH=arm64 $(GO) build $(GO_FLAGS) -o bin/linux-arm64/j
+	GOOS=linux GOARCH=arm64 $(GO) build $(GO_FLAGS) -o bin/linux-arm64/grvm
 build-linux-s390x:
-    GOOS=linux GOARCH=s390x $(GO) build $(GO_FLAGS) -o  bin/linux-s390x/j
+    GOOS=linux GOARCH=s390x $(GO) build $(GO_FLAGS) -o  bin/linux-s390x/grvm
 
 
 build-darwin: build-darwin-amd64 build-darwin-arm64
 build-darwin-amd64:
-	GOOS=darwin GOARCH=amd64 $(GO) build $(GO_FLAGS) -o bin/darwin-amd64/j
+	GOOS=darwin GOARCH=amd64 $(GO) build $(GO_FLAGS) -o bin/darwin-amd64/grvm
 build-darwin-arm64:
-	GOOS=darwin GOARCH=arm64 $(GO) build $(GO_FLAGS) -o bin/darwin-arm64/j
+	GOOS=darwin GOARCH=arm64 $(GO) build $(GO_FLAGS) -o bin/darwin-arm64/grvm
 
 
 build-windows: build-windows-386 build-windows-amd64 build-windows-arm build-windows-arm64
 build-windows-386:
-	GOOS=windows GOARCH=386 $(GO) build $(GO_FLAGS) -o bin/windows-386/j.exe
+	GOOS=windows GOARCH=386 $(GO) build $(GO_FLAGS) -o bin/windows-386/grvm.exe
 build-windows-amd64:
-	GOOS=windows GOARCH=amd64 $(GO) build $(GO_FLAGS) -o bin/windows-amd64/windows_amd_x86_64_j.exe
+	GOOS=windows GOARCH=amd64 $(GO) build $(GO_FLAGS) -o bin/windows-amd64/windows_amd_x86_64_grvm.exe
 build-windows-arm:
-	GOOS=windows GOARCH=arm $(GO) build $(GO_FLAGS) -o bin/windows-arm/j.exe
+	GOOS=windows GOARCH=arm $(GO) build $(GO_FLAGS) -o bin/windows-arm/grvm.exe
 build-windows-arm64:
-	GOOS=windows GOARCH=arm64 $(GO) build $(GO_FLAGS) -o bin/windows-arm64/j.exe
+	GOOS=windows GOARCH=arm64 $(GO) build $(GO_FLAGS) -o bin/windows-arm64/grvm.exe
 
 package:
 	sh ./package.sh

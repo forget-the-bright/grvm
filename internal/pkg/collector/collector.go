@@ -22,7 +22,7 @@ type GradleItem struct {
 	DownloadUrl string
 }
 
-func init() {
+func Init() {
 	Collector = &GradleCollector{
 		Items: getGradleAllInfo(),
 	}
