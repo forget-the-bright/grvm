@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/fatih/color"
-	"github.com/forget-the-bright/j/internal/pkg/config"
+	"github.com/forget-the-bright/grvm/internal/pkg/config"
 	"github.com/k0kubun/go-ansi"
 	"github.com/urfave/cli/v2"
 )

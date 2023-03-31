@@ -9,14 +9,15 @@ import (
 	"os"
 	"time"
 
-	"github.com/forget-the-bright/j/internal/pkg/errs"
+	"github.com/forget-the-bright/grvm/internal/pkg/errs"
+	"github.com/forget-the-bright/grvm/internal/pkg/proxy"
 	"github.com/k0kubun/go-ansi"
 	"github.com/schollz/progressbar/v3"
 )
 
 // Download 下载资源并另存为
 func Download(srcURL string, filename string, flag int, perm fs.FileMode, withProgress bool) (size int64, err error) {
-	resp, err := http.Get(srcURL)
+	resp, err := proxy.HttpGetByProxy(srcURL)
 	if err != nil {
 		return 0, errs.NewDownloadError(srcURL, err)
 	}

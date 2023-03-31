@@ -5,7 +5,7 @@ Gradle_Version_Manager
 
 
 ## 安装
-  [下载](https://github.com/forget-the-bright/j/releases) 下载自己需要的版本, 到自己自定义的目录 修改可执行文件名称为j
+  [下载](https://github.com/forget-the-bright/grvm/releases) 下载自己需要的版本, 到自己自定义的目录 修改可执行文件名称为j
   
   默认文件下载安装在用户目录下 ```.grvm```目录，目录下  ```versions```, ```downloads```, ```gradle```  分别是本地安装目录，安装包下载目录，当前使用的java版本目录 
 

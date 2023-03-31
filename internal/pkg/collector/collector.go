@@ -6,36 +6,40 @@ import (
 	"strings"
 )
 
-type Collector struct {
-	Version       string
-	Windows_X64   *Op_Item
-	Linux_X64     *Op_Item
-	Linux_AArch64 *Op_Item
-	Mac_X64       *Op_Item
-	Mac_AArch64   *Op_Item
+var Collector *GradleCollector
+
+type GradleCollector struct {
+	Items []*GradleItem
 }
 
-type Op_Item struct {
-	FileType  string
-	Arch      string
-	Url       string
-	Sha256Url string
-	FileName  string
+type GradleItem struct {
+	Version     string
+	ReleaseTime string
+	FileName    string
+	FileType    string
+	Sha256      string
+	Sha256Url   string
+	DownloadUrl string
 }
 
-var Archive_Releases_Collectors []*Collector
-var Collectors []*Collector
+func init() {
+	Collector = &GradleCollector{
+		Items: getGradleAllInfo(),
+	}
+}
 
-var Collector_Archive_Url string = Collector_Url + "/archive/"
-var Collector_Url string = "https://jdk.java.net"
+var Collector_Release_Checksums string = "https://gradle.org/release-checksums"
+var Collector_Archive_Url string = "https://gradle.org/releases/"
 
-func build_Op_Item(file_type, arch, download_url, sha256_url, file_name string) *Op_Item {
-	return &Op_Item{
-		FileType:  file_type,
-		Arch:      arch,
-		Url:       download_url,
-		Sha256Url: sha256_url,
-		FileName:  file_name,
+func build_GradleItem(version, version_time, sha256 string) *GradleItem {
+	return &GradleItem{
+		Version:     version,
+		ReleaseTime: version_time,
+		FileName:    "gradle-" + version + "-bin.zip",
+		FileType:    "zip",
+		Sha256:      sha256,
+		Sha256Url:   "https://downloads.gradle-dn.com/distributions/gradle-" + version + "-bin.zip.sha256",
+		DownloadUrl: "https://downloads.gradle-dn.com/distributions/gradle-" + version + "-bin.zip",
 	}
 }
 
@@ -44,7 +48,7 @@ func getFileNameByDownLoadUrl(url string) string {
 	file_name := downloads[len(downloads)-1]
 	return file_name
 }
-func getFileNameNoSuffix(file_name string) string {
+func GetFileNameNoSuffix(file_name string) string {
 	return strings.ReplaceAll(file_name, "."+getFileTypeByFileName(file_name), "")
 }
 

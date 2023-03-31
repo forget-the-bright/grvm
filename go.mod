@@ -1,4 +1,4 @@
-module github.com/forget-the-bright/j
+module github.com/forget-the-bright/grvm
 
 go 1.20
 

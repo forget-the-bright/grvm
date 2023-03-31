@@ -13,7 +13,7 @@ import (
 
 	"github.com/Masterminds/semver"
 	"github.com/fatih/color"
-	"github.com/forget-the-bright/j/internal/build"
+	"github.com/forget-the-bright/grvm/internal/build"
 	"github.com/urfave/cli/v2"
 )
 
@@ -25,15 +25,6 @@ var (
 )
 
 func init() {
-	/* 	ghomeDir, _ = os.Getwd()
-	   	fmt.Println(ghomeDir)
-	   	goroot = filepath.Join(ghomeDir, "java")
-	   	fmt.Println(goroot)
-	   	downloadsDir = filepath.Join(ghomeDir, "downloads")
-	   	os.MkdirAll(downloadsDir, 0755)
-	   	versionsDir = filepath.Join(ghomeDir, "versions")
-	   	os.MkdirAll(versionsDir, 0755) */
-
 	cli.AppHelpTemplate = fmt.Sprintf(`NAME:
 	{{.Name}}{{if .Usage}} - {{.Usage}}{{end}}
 
@@ -106,7 +97,7 @@ func ghome() (dir string) {
 		return dir
 	}
 	homeDir, _ := os.UserHomeDir()
-	return filepath.Join(homeDir, ".j")
+	return filepath.Join(homeDir, ".grvm")
 
 }
 
